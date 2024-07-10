@@ -5,13 +5,13 @@
         static void Main(string[] args)
         {
 
-            float percent = 0.017f;
+            float percent = 0.02f;
             float money;
             float months;
 
             int monthCount = 0;
 
-            Console.WriteLine("Bank. Give money and you collect more. Percentage is 1.7%");
+            Console.WriteLine("Bank. Give money and you collect more. Percentage is 2%");
 
             Console.Write("How much you have money: ");
             money = Convert.ToInt32(Console.ReadLine());
@@ -26,17 +26,18 @@
 
             if (choiceOfOperation == "1")
             {
+                float moneyWithProfit = money;
 
                 Console.WriteLine($"Money before: {money}");
 
                 for (float i = months; i > 0; i--)
                 {
-                    float profit = money * percent;
-                    money += Convert.ToInt32(profit);
+                    moneyWithProfit += money * percent;
 
-                    Console.WriteLine($"{++monthCount} month: {money}");
+                    Console.WriteLine($"{++monthCount} month: {moneyWithProfit}");
                 }
 
+                money = moneyWithProfit;
             }
             else if (choiceOfOperation == "2")
             {
